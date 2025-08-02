@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <script src="https://cdn.tailwindcss.com"></script>
+    <title>Cadastrar Alimento</title>
+</head>
+<body class="flex flex-col items-center justify-center bg-[url('{% static 'img/ervilhas.png' %}')] bg-cover bg-center">
+    <header class="flex w-[70%] items-center justify-center rounded bg-black bg-opacity-30 text-white mt-8 gap-8 p-4">
+        <a class="text-[20px]" href="{% url 'index' %}">Inicio</a>
+        <a class="text-[20px]" href="{% url 'carboidratos' %}">Carboidratos</a>
+        <a class="text-[20px]" href="{% url 'proteinas' %}">Proteinas</a>
+        <a class="text-[20px]" href="{% url 'gorduras' %}">Gorduras</a>
+    </header>
+     <form method="get" class="mt-10 p-7 flex flex-col items-center justify-center w-[70%] rounded bg-black bg-opacity-30">
+       <div class="flex gap-8 p-4 w-[60%] items-center justify-center">
+         <input type="text" name="nome" placeholder="Nome do alimento" class="border p-2 rounded w-[50%] ">
+         <input type="number" name="quantidade_gramas" placeholder="Gramas (g)" class="border p-2 rounded w-[50%] ">
+      </div>
+      <div class="flex gap-8 p-4 w-[60%] items-center justify-center">
+         <input type="number" step="0.01" name="carboidratos" placeholder="Carboidrato (g)" class="border p-2 rounded w-[50%]">
+         <input type="number" step="0.01" name="proteinas" placeholder="Proteina (g)" class="border p-2 rounded w-[50%]">
+       </div>
+       <div class="flex gap-8 p-4 w-[60%] items-center justify-center">
+         <input type="number" step="0.01" name="gordurasTotais" placeholder="Gorduras Totais (g)" class="border p-2 rounded w-[50%]">
+         <input type="number" step="0.01" name="gorduraSaturada" placeholder="Gorduras Saturadas (g)" class="border p-2 rounded w-[50%]">
+       </div>
+       <div class="flex gap-8 p-4 w-[60%] items-center justify-center">
+         <input type="number" name="Ig" placeholder="Índice Glicêmico (I)" class="border p-2 rounded w-[50%]">
+         <input type="number" step="0.01" name="cg" placeholder="Carga Glicêmica (C)" class="border p-2 rounded w-[50%]">
+       </div>
+       <div class="flex gap-8 p-4 w-[60%] items-center justify-center">
+         <input type="number" name="kcal" placeholder="Kcal (kcal)" class="border p-2 rounded w-[50%]">
+         <input type="number" step="0.01" name="fibras" placeholder="Fibras (g)" class="border p-2 rounded w-[50%]">
+       </div>
+       <button type="submit" class="bg-green-800 text-white px-4 py-2 rounded w-[57%]">
+        Cadastrar
+        </button>
+    </form>
+</body>
+</html>

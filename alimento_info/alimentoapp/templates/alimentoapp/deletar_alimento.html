@@ -1,0 +1,24 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <script src="https://cdn.tailwindcss.com"></script>
+    <title>Deletar Alimento</title>
+</head>
+<body class="flex flex-col items-center justify-center bg-[url('{% static 'img/ervilhas.png' %}')] bg-cover bg-center p-8">
+    <header class="flex w-[70%] items-center justify-center rounded bg-black bg-opacity-30 text-white mt-8 gap-8 p-4">
+        <a class="text-[20px]" href="{% url 'carboidratos' %}">Carboidratos</a>
+        <a class="text-[20px]" href="{% url 'proteinas' %}">Proteinas</a>
+        <a class="text-[20px]" href="{% url 'gorduras' %}">Gorduras</a>
+    </header>
+    
+    <form method="post" class="mt-10">
+       {% csrf_token %}
+       <button type="submit" class="border text-white px-6 py-4 rounded hover:bg-red-500">Deletar {{ alimento.nome }}?</button>
+    </form>
+    <a class="mt-4 text-blue-500 hover:bg-green-300" href="{% url 'informacoes' %}?nome={{ alimento.nome }}&quantidade=100">Não, ver informações em 100g</a>
+
+</body>
+</html>

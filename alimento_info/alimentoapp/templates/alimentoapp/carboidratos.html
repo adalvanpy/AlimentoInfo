@@ -1,0 +1,146 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informações Nutricionais</title>
+</head>
+<body class="flex flex-col items-center justify-center bg-[url('{% static 'img/carbo.png' %}')] bg-cover bg-center">
+<header class="flex w-[87%] items-center justify-center rounded bg-black bg-opacity-30 text-white mt-8 gap-8 p-4">
+        <a class="text-[20px]" href="{% url 'index' %}">Inicio</a>
+        <a class="text-[20px]" href="{% url 'carboidratos' %}">Carboidratos</a>
+        <a class="text-[20px]" href="{% url 'proteinas' %}">Proteinas</a>
+        <a class="text-[20px]" href="{% url 'gorduras' %}">Gorduras</a>
+        <!--<a class="text-[20px]" href="">Sobre</a>-->
+     <form method="GET" class="flex gap-4">
+        <input type="text" name="nome" placeholder="Nome do alimento" class="border p-2 rounded text-black">
+        <input type="number" name="quantidade" placeholder="Quantidade (g)" class="border p-2 rounded text-black">
+        <button type="submit" formaction="{% url 'encontrados' %}" class="bg-green-800 text-white px-4 py-2 rounded">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" >
+               <circle cx="11" cy="11" r="7"/>
+               <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+            </svg>
+        </button>
+    </form>
+</header>
+
+<main class="flex p-7 flex-col items-center justify-center">
+    <div class="rounded shadow-md bg-black bg-opacity-30 w-[90%] mx-auto p-8 flex flex-col gap-10 text-white leading-relaxed">
+
+        <div class="cg space-y-4">
+            <h1 class="text-4xl font-bold text-brown-700">O que é carga glicêmica?</h1>
+            <p class="text-[18px]">
+                A carga glicêmica (CG) considera o índice glicêmico (IG) e a quantidade de carboidratos por porção.
+                Ela mostra o impacto real do alimento na glicose sanguínea.
+            </p>
+
+            <h3 class="text-2xl font-semibold text-brown-700">Fórmula:</h3>
+            <p><strong>CG = (IG x Carboidratos da porção em gramas) / 100</strong></p>
+
+            <h3 class="text-2xl font-semibold text-brown-700">Classificação:</h3>
+            <ul class="list-disc list-inside text-[18px]">
+                <li>Baixa: 0-10</li>
+                <li>Média: 11-19</li>
+                <li>Alta: 20 ou mais</li>
+            </ul>
+
+            <p class="text-[18px]">
+                A CG ajuda a avaliar o efeito glicêmico total dos alimentos, ideal para diabéticos e controle de peso.
+            </p>
+            <div class="flex flex-col lg:flex-row gap-8 w-full p-4">
+
+                <div class="lg:w-1/2 space-y-4">
+                    <h1 class="text-4xl font-bold text-brown-700">O que são carboidratos?</h1>
+                    <p class="text-[18px]">
+                        Macronutriente essencial, principal fonte de energia para cérebro e músculos.
+                    </p>
+
+                    <ul class="space-y-2 text-[18px]">
+                        <li><strong>Compostos orgânicos:</strong> carbono, hidrogênio e oxigênio.</li>
+                        <li><strong>Função:</strong> energia rápida e eficiente.</li>
+                        <li><strong>Classificação:</strong></li>
+                        <ul class="ml-6 list-disc list-inside">
+                            <li><strong>Simples:</strong> rápida absorção (glicose, frutose).</li>
+                            <li><strong>Complexos:</strong> absorção lenta, ricos em fibras (amido, celulose).</li>
+                        </ul>
+                        <li><strong>Fontes:</strong></li>
+                        <ul class="ml-6 list-disc list-inside">
+                            <li><strong>Simples:</strong> açúcar, mel, frutas.</li>
+                            <li><strong>Complexos:</strong> arroz, pão, cereais integrais.</li>
+                        </ul>
+                        <li><strong>Funções no organismo:</strong></li>
+                        <ul class="ml-6 list-disc list-inside">
+                            <li><strong>Energia:</strong> principal fonte para células.</li>
+                            <li><strong>Reserva:</strong> glicogênio no fígado e músculos.</li>
+                            <li><strong>Intestino:</strong> fibras auxiliam digestão.</li>
+                            <li><strong>Regulação:</strong> controlam glicose e insulina.</li>
+                        </ul>
+                        <li><strong>Tipos:</strong></li>
+                        <ul class="ml-6 list-disc list-inside">
+                            <li><strong>Monossacarídeos:</strong> glicose, frutose.</li>
+                            <li><strong>Dissacarídeos:</strong> sacarose, lactose.</li>
+                            <li><strong>Polissacarídeos:</strong> amido, fibras.</li>
+                        </ul>
+                    </ul>
+
+                    <p class="text-[18px]">
+                        Consuma carboidratos com equilíbrio, dando preferência aos complexos e ricos em fibras.
+                    </p>
+                </div>
+                  
+
+        <div class="ig space-y-4">
+            <h1 class="text-4xl font-bold text-brown-700">O que é índice glicêmico?</h1>
+            <p class="text-[18px]">
+                O IG mostra a velocidade de aumento da glicose no sangue após consumir um alimento.
+                IG alto (>70) eleva rapidamente; IG baixo (< 50)
+            </p>
+
+            <h3 class="text-2xl font-semibold text-brown-700">Classificação do IG:</h3>
+            <ul class="list-disc list-inside text-[18px]">
+                <li>Baixa: 0-55</li>
+                <li>Média: 56-69</li>
+                <li>Alto: 70 ou mais</li>
+            </ul>
+
+            <p>Importante para diabéticos e controle glicêmico.</p>
+
+            <h2 class="text-xl font-semibold text-brown-700">Como reduzir o IG?</h2>
+            <h3 class="text-lg font-medium">Combine carboidratos com proteínas e gorduras saudáveis</h3>
+            <p>
+                Combinações como arroz com feijão e abacate retardam a digestão e reduzem o IG dos alimentos.
+            </p>
+        </div>
+    </div>
+
+
+    <div class="w-[90%] mt-8 text-white bg-green-800 p-4 rounded">
+        <p><strong>Referências</strong><br>
+            Organização Mundial da Saúde (OMS)<br>
+            <a href="https://www.who.int/health-topics/nutrition" class="underline">https://www.who.int/health-topics/nutrition</a><br>
+            Harvard T.H. Chan School of Public Health<br>
+            <a href="https://www.hsph.harvard.edu/nutritionsource/carbohydrates/" class="underline">https://www.hsph.harvard.edu/nutritionsource/carbohydrates/</a><br>
+            Academy of Nutrition and Dietetics (AND)<br>
+            <a href="https://www.eatright.org" class="underline">https://www.eatright.org</a>
+        </p>
+    </div>
+
+</main>
+
+<footer class="h-[80px] w-[87%] bg-black bg-opacity-30 rounded mb-8 flex justify-center items-center gap-4">
+    <a href="https://www.facebook.com/dalvan.lima.520" target="_blank">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook" class="h-6 invert" />
+    </a>
+    <a href="https://www.instagram.com/thedalvan/" target="_blank">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram" class="h-6 invert" />
+    </a>
+    <a href="https://github.com/adalvanpy" target="_blank" class="flex  gap-2 text-white">
+      <svg height="28" width="28" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+        <path d="M8 0C3.58 0 0 3.58 0 8a8 8 0 005.47 7.59c.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2 .37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.58.82-2.14-.08-.2-.36-1.02.08-2.13 0 0 .67-.21 2.2.82a7.56 7.56 0 012-.27 7.56 7.56 0 012 .27c1.53-1.03 2.2-.82 2.2-.82.44 1.11.16 1.93.08 2.13.51.56.82 1.27.82 2.14 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8 8 0 0016 8c0-4.42-3.58-8-8-8z"/>
+      </svg>
+    </a>
+</footer>
+
+</body>
+</html>
